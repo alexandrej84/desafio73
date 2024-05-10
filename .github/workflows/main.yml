@@ -17,6 +17,9 @@ jobs:
         
       - name: Set file permissions
         run: chmod 666 imagem.jpg  # Define permissões máximas para o arquivos
+
+      - name: test
+        run: ls
         
       - name: Upload image via SCP
         uses: appleboy/scp-action@master
