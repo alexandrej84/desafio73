@@ -26,4 +26,4 @@ jobs:
           key: ${{ secrets.SCP_PRIVATE_KEY }}
           port: ${{ secrets.SCP_PORT }}
           source: "./7.jpg"  # Caminho da imagem dentro do repositóriosss
-          target: "/mnt/efs"  # Caminho de destino no servidor remoto
+          target: "/mnt/efs"  # Caminho de destino no servidor remotos
