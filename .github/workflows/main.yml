@@ -25,5 +25,5 @@ jobs:
           username: ${{ secrets.SCP_USERNAME }}
           key: ${{ secrets.SCP_PRIVATE_KEY }}
           port: ${{ secrets.SCP_PORT }}
-          source: ".github/workflows/imagem.jpg"  # Caminho da imagem dentro do repositórios
+          source: "imagem.jpg"  # Caminho da imagem dentro do repositórios
           target: "/mnt/efs"  # Caminho de destino no servidor remoto
