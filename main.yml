@@ -1,0 +1,29 @@
+name: Sync Images to Server
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "*.txt"
+
+jobs:
+  sync-images:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Set file permissions
+        run: chmod 666 FBrG7fZWYAMkBD7.jpg  # Define permissões máximas para o arquivo
+        
+      - name: Upload image via SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SCP_HOST }}
+          username: ${{ secrets.SCP_USERNAME }}
+          key: ${{ secrets.SCP_PRIVATE_KEY }}
+          port: ${{ secrets.SCP_PORT }}
+          source: "./FBrG7fZWYAMkBD7.jpg"  # Caminho da imagem dentro do repositório
+          target: "/mnt/efs"  # Caminho de destino no servidor remoto
